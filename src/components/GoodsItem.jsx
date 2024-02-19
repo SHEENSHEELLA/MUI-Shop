@@ -14,7 +14,7 @@ const GoodsItem = (props) => {
 
   return (
     <Grid xs={12} md={4}>
-      <Card sx={{ height: '100%' }}>
+      <Card sx={{height: '100%'}}>
         <CardMedia
           sx={{ height: 140 }}
           image={poster}

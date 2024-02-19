@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import BasketList from './BasketList'
 import Header from './Header'
 import GoodsList from './GoodsList'
 import Search from './Search'
@@ -13,7 +12,7 @@ const App = () => {
   const [order, setOrder] = useState([])
   const [search, setSearch] = useState('')
   const [products, setProducts] = useState(goods)
-  const [isCartOpen, setIsCartOpen] = useState('false')
+  const [isCartOpen, setIsCartOpen] = useState('')
 
   const handleChange = (e) => {
     if (!e.target.value) {
@@ -69,11 +68,10 @@ const App = () => {
 
   return (
     <>
-      <Header handleCart={() => setIsCartOpen(true)} />
+      <Header handleCart={() => setIsCartOpen(true)} orderLen={order.length} />
       <Container sx={{ mt: '1rem' }}>
         <Search value={search} onChange={handleChange} />
         <GoodsList goods={products} setOrder={addToOrder} />
-        <BasketList order={order} setOrder={removeFromOrder} />
         <Basket
           order={order}
           removeFromOrder={removeFromOrder}
